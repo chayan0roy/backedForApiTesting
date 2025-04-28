@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const passport = require('passport');
 const path = require('path');
@@ -12,6 +13,11 @@ const teacherRoutes = require('./routes/Teacter');
 dotenv.config();
 const app = express();
 
+app.use(cors({
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(passport.initialize());
 app.use(express.json());

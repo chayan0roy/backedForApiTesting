@@ -42,7 +42,8 @@ router.post('/checkAuth', passport.authenticate('jwt', { session: false }), asyn
 router.post('/register', async (req, res) => {
     try {
         const { email, password } = req.body;
-        
+        console.log(email);
+
         if (!email || !password) {
             return res.status(400).json({ status: "failed", message: "All fields are required" });
         }
